@@ -34,78 +34,77 @@ B4n1 =[[0, 1, 0, 0], [1, 1, 1, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 se = [B1n1,B1n2,B1n3,B1n4]
 
 
-def transfo_grid(matrixx, AllBlocs):
-    y = 1
-    k = 1
+def transfo_grid(matrix_for_functions, AllBlocs):
     a = random.choice(AllBlocs)
     b = random.choice(AllBlocs)
     c = random.choice(AllBlocs)
-    print('*', end=" ")
-    for j in range(len(matrixx[0])):
+    print('*', end="  ")
+    for j in range(len(matrix_for_functions[0])):
         print(chr(j + 97), end=' ')
     print('')
     print('  ╔══════════════════════════════════════╗', end='')
     print()
     if BlocsInTheGame == 2:
-        for i in range(4):
+        for i in range(5):
             print(chr(i + 65), end=' ║')
-            for j in range(len(matrixx[0])):
-                if matrixx[i][j] == 2:
+            for j in range(len(matrix_for_functions[0])):
+                if matrix_for_functions[i][j] == 2:
                     print(u'\u25A0', end=' ')
-                if matrixx[i][j] == 0:
+                if matrix_for_functions[i][j] == 0:
                     print(' ', end=' ')
-                if matrixx[i][j] == 1:
+                if matrix_for_functions[i][j] == 1:
                     print(u'\u00B7', end=' ')
             print('║', end=' ')
-            for y in range(4):
-                    if (a[i][y] == 1):
-                        print(u'\u25A0', end=' ')
-                    else:
-                        print(u'\u00B7', end=' ')
-            print('', end='  ')
-            for y in range(4):
-                if (b[i][y] == 1):
-                  print(u'\u25A0', end=' ')
+            for y in range(5):
+                if a[i][y] == 1:
+                    print(u'\u25A0', end=' ')
                 else:
                     print(u'\u00B7', end=' ')
             print('', end='  ')
-            for y in range(4):
-                if (c[i][y] == 1):
+            for y in range(5):
+                if b[i][y] == 1:
+                    print(u'\u25A0', end=' ')
+                else:
+                    print(u'\u00B7', end=' ')
+            print('', end='  ')
+            for y in range(5):
+                if c[i][y] == 1:
                     print(u'\u25A0', end=' ')
                 else:
                     print(u'\u00B7', end=' ')
             print('')
     else:
-        for i in range(3):
+        for i in range(5):
             print(chr(i + 65), end=' ║')
-            for j in range(len(matrixx[0])):
-                if matrixx[i][j] == 2:
+            for j in range(len(matrix_for_functions[0])):
+                if matrix_for_functions[i][j] == 2:
                     print(u'\u25A0', end=' ')
-                if matrixx[i][j] == 0:
+                if matrix_for_functions[i][j] == 0:
                     print(' ', end=' ')
-                if matrixx[i][j] == 1:
+                if matrix_for_functions[i][j] == 1:
                     print(u'\u00B7', end=' ')
             print('║', end=' ')
-            for y in range(4):
-                if (a[i][y] == 1):
+            for y in range(5):
+                if a[i][y] == 1:
                     print(u'\u25A0', end=' ')
                 else:
                     print(u'\u00B7', end=' ')
             print('', end='  ')
             print('')
-    for i in range(3, len(matrixx)):
+    for i in range(5, len(matrix_for_functions)):
         print(chr(i + 65), end=' ║')
-        for j in range(len(matrixx[0])):
-            if matrixx[i][j] == 2:
+        for j in range(len(matrix_for_functions[0])):
+            if matrix_for_functions[i][j] == 2:
                 print(u'\u25A0', end=' ')
-            if matrixx[i][j] == 0:
+            if matrix_for_functions[i][j] == 0:
                 print(' ', end=' ')
-            if matrixx[i][j] == 1:
+            if matrix_for_functions[i][j] == 1:
                 print(u'\u00B7', end=' ')
         print('║', end=' ')
         print('')
     print('  ╚══════════════════════════════════════╝', end='')
     return a, b, c
+
 
 
 def verify_grid():
