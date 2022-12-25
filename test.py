@@ -307,21 +307,24 @@ if game == 1:
             else:
                 bloc_used = a
                 print()
-            line_selected = int(input('Choose a line : '))
+            line_selectedstring = str(input('Choose a line : '))
+            line_selected = ord(line_selectedstring)-65
             if level == 3:
                 while (line_selected >= 8) or (line_selected < 0) and line_selected != 99:
                     if line_selected == 99:
                         exit()
                     print('Not a valid line')
-                    line_selected = int(input('Choose a line : '))
+                    line_selected = (input('Choose a line : '))
 
             else:
+                print(line_selected)
                 while (line_selected >= 18) or (line_selected < 0):
                     if line_selected == 99:
                         exit()
                     print('Not a valid line')
-                    line_selected = int(input('Choose a line : '))
-            column_selected = int(input('Choose a column : '))
+                    line_selected = (input('Choose a line : '))
+            column_selectedstring = (input('Choose a column : '))
+            column_selected = ord(column_selectedstring)-97
             if column_selected == 99:
                 exit()
             while (column_selected >= 15) or (column_selected < 0) and column_selected != 99:
