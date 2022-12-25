@@ -3,6 +3,9 @@ import numpy as np
 import random
 import time
 from Blocs import seCircle, seTriangle, seDiamond, se
+import pygame
+pygame.init()
+from pygame import mixer
 
 ########################################################################################################
 ########################################## VARIABLES: ##################################################
@@ -148,17 +151,6 @@ def transfo_grid(matrix_for_functions, AllBlocs):
     return a, b, c
 
 
-# Function used to print the bloc with squares and hyphens and zeros and ones
-def affichage(bloc):
-    for i in range(len(bloc1)):
-        print('')
-        for j in range(3):
-            if bloc[i][j] == 1:
-                print('\u25A0', end=' ')
-            if bloc[i][j] == 0:
-                print('\u00B7', end=' ')
-    print('')
-
 
 # Function that verifies if all the bloc fits in the grid, so if the user tries to put the bloc on one
 # side it doesn't fit completely then it will return false
@@ -172,18 +164,6 @@ def verify_grid(matrix_for_function):
                     print(f'{"Not possible to play here":-^40}')
                     return False
     return True
-
-
-def interact():
-    fn = input("Enter a filename: ")
-    return fn
-
-
-def load_maze(fn):
-    myfile = open(fn)
-    maze_txt = myfile.read()
-    myfile.close()
-    return maze_txt
 
 
 # Function reading the grid used to verify if you can place a bloc somewhere, it compares the value of
@@ -208,12 +188,12 @@ def col_delete(matrix_for_functions, score, lives):
             if matrix[i][j]==1:
                 m+=1
         if m == 0:
-            for i in range(len(matrix_for_functions)):
+            for i in range(len(matrix_for_functions[j])):
                 if matrix[i][j]==2:
                     matrix[i][j]=1
                     n+=1
-                score += n
-                lives += 1
+            score += n
+            lives += 1
             print('You have filled out column', j + 1, 'it will reset, You have obtained', n,
                       'point(s) and 1 life!')
     return True,score,lives
@@ -253,7 +233,8 @@ def line_delete(matrix_for_functions, score, lives):
                     return True, score, lives
         return False, score, lives
 
-
+mixer.music.load('01. Title (1).mp3')
+mixer.music.play(-1)
 print('\033[0;31;40m')
 print('\033[1m')
 print(f'{"TETRIS GAME":-^40}')
@@ -272,9 +253,13 @@ while game != 1:
         print('The rules are simple: You will play a tetris like game, if you fill a line or a column with the blocs')
         print('you will gain points and one life, if you misplace a block 3 times: GAME OVER, now press 1 to play')
         game = int(input(''))
-
+    if game == 99:
+        exit()
 # The menu for the different grids
 if game == 1:
+    mixer.music.stop()
+    mixer.music.load('Tetris.mp3')
+    mixer.music.play(-1)
     level = 9
     while level > 5 or level < 1 and level != 99:
         print('What level do you want to play?')
@@ -320,8 +305,6 @@ if game == 1:
                 if whatbloc == 99:
                     exit()
             else:
-                print('\n', 'Lives:', lives)
-                print(' Score:', score)
                 bloc_used = a
                 print()
             line_selected = int(input('Choose a line : '))
@@ -350,6 +333,7 @@ if game == 1:
                 lives -= 1
             read_grid(matrix)
             if lives == 0:
+                mixer.music.stop()
                 print(f'{"GAME OVER":-^40}')
                 reset = int(input('PRESS 1 TO PLAY AGAIN:'))
                 if reset == 1:
@@ -362,6 +346,7 @@ if game == 1:
             if level == 99:
                 exit()
             l, score, lives = line_delete(matrix, score, lives)
+            l,score,lives=col_delete(matrix,score,lives)
             line_delete(matrix, score, lives)
             col_delete(matrix, score, lives)
             time.sleep(2)

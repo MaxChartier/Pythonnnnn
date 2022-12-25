@@ -331,5 +331,6 @@ bloc54 = [0, 0, 0, 0, 0], \
         [1, 1, 0, 0, 0]
 seCircle = [bloc1, bloc2, bloc3, bloc4, bloc5, bloc6, bloc7, bloc8, bloc9, bloc10, bloc11, bloc12, bloc13, bloc14, bloc15, bloc16, bloc17, bloc18, bloc19, bloc20, bloc21, bloc22, bloc23, bloc24, bloc25, bloc26, bloc27, bloc28, bloc29, bloc30]
 seDiamond = [bloc1,bloc2, bloc3, bloc4, bloc5, bloc6, bloc7, bloc8, bloc9, bloc10, bloc11, bloc12, bloc13, bloc14, bloc15, bloc16, bloc17, bloc18, bloc44, bloc45, bloc46, bloc47, bloc48, bloc49, bloc50, bloc51, bloc52, bloc53, bloc54]
-seTriangle = [bloc1,bloc2, bloc3, bloc4, bloc5, bloc6, bloc7, bloc8, bloc9, bloc10, bloc11, bloc12, bloc13, bloc14, bloc15, bloc16, bloc17, bloc18, bloc31, bloc32, bloc33, bloc34, bloc35, bloc36, bloc37, bloc38, bloc39, bloc40, bloc41, bloc42, bloc43]
+seTriangle = [bloc1]
+#bloc2, bloc3, bloc4, bloc5, bloc6, bloc7, bloc8, bloc9, bloc10, bloc11, bloc12, bloc13, bloc14, bloc15, bloc16, bloc17, bloc18, bloc31, bloc32, bloc33, bloc34, bloc35, bloc36, bloc37, bloc38, bloc39, bloc40, bloc41, bloc42, bloc43]
 se = [bloc1, bloc2, bloc3, bloc4, bloc5, bloc6, bloc7, bloc8, bloc9, bloc10, bloc11, bloc12, bloc13, bloc14, bloc15, bloc16, bloc17, bloc18, bloc19, bloc20, bloc21, bloc22, bloc23, bloc24, bloc25, bloc26, bloc27, bloc28, bloc29, bloc30, bloc31, bloc32, bloc33, bloc34, bloc35, bloc36, bloc37, bloc38, bloc39, bloc40, bloc41, bloc42, bloc43, bloc44, bloc45, bloc46, bloc47, bloc48, bloc49, bloc50, bloc51, bloc52, bloc53, bloc54]
